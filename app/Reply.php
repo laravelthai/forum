@@ -12,4 +12,14 @@ class Reply extends Model
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * A reply has an owner.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

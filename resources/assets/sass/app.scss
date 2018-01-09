@@ -11,28 +11,32 @@
 .navbar-light {
   box-shadow: 0px 1px 11px 2px rgba(42, 42, 42, 0.1);
 }
-
-// Card
-.card-header {
-  background-color: #fff;
-  border-bottom: 1px solid #eeeeee;
-}
-h5.card-title {
-  margin-top: .75rem;
-}
-// Thread
-.thread-list .list-group-item {
+.list-group-item {
   border: none;
   margin-bottom: 0;
   border-bottom: 1px solid #f2f2f2;
 }
+// Card
+.card .card-header {
+  background-color: #fff;
+  border-bottom: 1px solid #eeeeee;
+}
+.card h5.card-title {
+  margin-top: .75rem;
+}
+// Forum
+.meta {
+  color: #b3b3b3;
+  font-size: .9em;
+}
+// Thread
 .thread-show .card .card-header {
   padding: 15px 22px;
 }
 .thread-show .thread-title {
   font-size: 1.575rem;
 }
-.thread-meta {
-   color: #d0d0d0;
-   font-size: 12px;
- }
+.reply-list .avatar {
+  width: 48px;
+  height: 48px;
+}
