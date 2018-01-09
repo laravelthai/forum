@@ -19,7 +19,7 @@
                         {{ $thread->body }}
                     </div>
                 </div>
-                <div class="reply-list card">
+                <div class="reply-list card mb-3">
                     <div class="card-header">
                         Reply
                     </div>
@@ -31,6 +31,11 @@
                         </ul>
                     </div>
                 </div>
+                @if (auth()->check())
+                    @include('threads._reply_box')
+                @else
+                    <p class="text-center">Please <a href="{{ route('login') }}">sign in</a> to participate in this discussion.</p>
+                @endif
             </div>
         </div>
     </div>
