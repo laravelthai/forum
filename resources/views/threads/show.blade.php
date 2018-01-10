@@ -5,13 +5,15 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 thread-show">
+            <div class="col-md-9 main-content thread-show">
                 <div class="card mb-3">
                     <div class="card-header">
                         <h1 class="thread-title">{{ $thread->title }}</h1>
                         <div class="meta">
                             <i class="fa fa-folder" aria-hidden="true"></i>
-                            {{ $thread->creator->name }}
+                            <a href="{{ route('profile', $thread->creator) }}">
+                                {{ $thread->creator->name }}
+                            </a>
                             {{ $thread->created_at->diffForHumans() }}
                         </div>
                     </div>

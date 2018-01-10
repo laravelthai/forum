@@ -2,7 +2,7 @@
     <div class="media">
         <img class="avatar rounded-circle mr-3" src="https://i.imgur.com/1fgOYH3.jpg" alt="{{ $reply->owner->name }}">
         <div class="media-body">
-            <a href="#" title="{{ $reply->owner->name }}">
+            <a href="{{ route('profile', $reply->owner) }}" title="{{ $reply->owner->name }}">
                 {{ $reply->owner->name }}
             </a>
             <span> • </span>
