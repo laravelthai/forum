@@ -5,10 +5,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 mb-3 mb-md-0">
+            <div class="main-content col-md-9 mb-3 mb-md-0">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">All Threads</h5>
+                        <h3 class="card-title">All Threads</h3>
                     </div>
                     <div class="card-body p-0">
                         <ul class="list-group thread-list">
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 sidebar">
+            <div class="sidebar col-md-3">
                 @include('threads._sidebar')
             </div>
         </div>

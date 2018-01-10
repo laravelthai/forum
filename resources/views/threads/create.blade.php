@@ -5,10 +5,10 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 thread-index">
+            <div class="main-content col-md-9 ">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Create a New Thread</h5>
+                        <h3 class="card-title">Create a New Thread</h3>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="/threads">
