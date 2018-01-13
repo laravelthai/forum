@@ -9,7 +9,7 @@
                 <div class="media-body">
                     <img class="img-thumbnail rounded-circle mr-sm-3 float-sm-left" src="https://i.imgur.com/1fgOYH3.jpg">
                     <h2>{{ $profileUser->name }}</h2>
-                    <ul class="user-info list-inline">
+                    <ul class="list-inline text-xs-muted">
                         <li class="list-inline-item">
                             <i class="fa fa-clock-o "></i> 44 minutes ago
                         </li>
@@ -42,7 +42,7 @@
                                     <a href="{{ url($thread->path()) }}">
                                         {{ $thread->title }}
                                     </a>
-                                    <span class="meta pull-right">
+                                    <span class="text-xs-muted pull-right">
                                         {{ $thread->created_at->diffForHumans() }}
                                     </span>
                                 </li>

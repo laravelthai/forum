@@ -10,21 +10,19 @@
                     <div class="card-header">
                         <h3 class="card-title">All Threads</h3>
                     </div>
-                    <div class="card-body p-0">
-                        <ul class="list-group thread-list">
-                            @forelse ($threads as $thread)
-                            <li class="list-group-item">
-                                <a href="{{ $thread->path() }}">
-                                    {{ $thread->title }}
-                                </a>
+                    <ul class="list-group list-group-flush">
+                        @forelse ($threads as $thread)
+                        <li class="list-group-item">
+                            <a href="{{ $thread->path() }}">
+                                {{ $thread->title }}
+                            </a>
+                        </li>
+                        @empty
+                            <li class="list-group-item text-center">
+                                There are no relevant results at this time.
                             </li>
-                            @empty
-                                <li class="list-group-item text-center">
-                                    There are no relevant results at this time.
-                                </li>
-                            @endforelse
-                        </ul>
-                    </div>
+                        @endforelse
+                    </ul>
                 </div>
             </div>
             <div class="sidebar col-md-3">

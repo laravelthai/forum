@@ -5,13 +5,11 @@
                 <div class="card-header">
                     <span v-text="repliesCount"></span> Comments
                 </div>
-                <div class="card-body p-0">
-                    <ul class="list-group">
-                        <template v-for="(reply, index) in items">
-                            <reply :reply="reply" @deleted="remove(index)" :key="reply.id"/>
-                        </template>
-                    </ul>
-                </div>
+                <ul class="list-group list-group-flush">
+                    <template v-for="(reply, index) in items">
+                        <reply :reply="reply" @deleted="remove(index)" :key="reply.id"/>
+                    </template>
+                </ul>
             </div>
             <paginator :dataSet="dataSet" @changed="fetch"/>
         </div>
