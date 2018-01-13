@@ -31,15 +31,6 @@ class ReadThreadsTest extends TestCase
     }
 
     /** @test */
-    function a_user_can_read_replies_that_are_associated_with_a_thread()
-    {
-        $reply = create('App\Reply', ['thread_id' => $this->thread->id]);
-
-        $this->get($this->thread->path())
-            ->assertSee($reply->body);
-    }
-
-    /** @test */
     function a_user_can_request_all_replies_for_a_given_thread()
     {
         $thread = create('App\Thread');

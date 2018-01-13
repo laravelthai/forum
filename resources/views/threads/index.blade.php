@@ -12,13 +12,17 @@
                     </div>
                     <div class="card-body p-0">
                         <ul class="list-group thread-list">
-                        @foreach ($threads as $thread)
+                            @forelse ($threads as $thread)
                             <li class="list-group-item">
                                 <a href="{{ $thread->path() }}">
                                     {{ $thread->title }}
                                 </a>
                             </li>
-                        @endforeach
+                            @empty
+                                <li class="list-group-item text-center">
+                                    There are no relevant results at this time.
+                                </li>
+                            @endforelse
                         </ul>
                     </div>
                 </div>

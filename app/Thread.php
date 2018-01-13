@@ -14,6 +14,18 @@ class Thread extends Model
     protected $guarded = [];
 
     /**
+     * Boot the model.
+     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($thread) {
+            $thread->replies->each->delete();
+        });
+    }
+
+    /**
      * Get a string path for the thread.
      *
      * @return string
