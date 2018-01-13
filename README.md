@@ -5,3 +5,6 @@
 * User Authentication - สมัครสมาชิก, เข้าสู่ระบบ, ออกจากระบบ และกู้คืนรหัสผ่าน;
 * User Profile - แก้ไขข้อมูลส่วนตัว อัพรูปโปรไฟล์ และเปลี่ยนรหัสผ่าน;
 * ฯลฯ
+
+### Credits
+* https://github.com/laracasts/Lets-Build-a-Forum-in-Laravel
