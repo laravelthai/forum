@@ -13,17 +13,18 @@ class ReplyController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' => 'index']);
     }
 
     /**
      * Display a listing of the resource.
      *
+     * @param Thread $thread
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Thread $thread)
     {
-        //
+        return $thread->replies()->paginate(20);
     }
 
     /**
@@ -40,18 +41,20 @@ class ReplyController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \App\Thread  $thread
-     * @return \Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Database\Eloquent\Model
      */
     public function store(Thread $thread)
     {
         $this->validate(request(), ['body' => 'required']);
 
-        $thread->addReply([
+        $reply = $thread->addReply([
             'body' => request('body'),
             'user_id' => auth()->id(),
         ]);
 
-        return back()->with('flash', 'Your reply has been left.');
+        if (request()->expectsJson()) {
+            return $reply->load('owner');
+        }
     }
 
     /**
@@ -80,7 +83,7 @@ class ReplyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Reply $reply
-     * @return void
+     * @return \Illuminate\Http\Response
      */
     public function update(Reply $reply)
     {
@@ -89,6 +92,10 @@ class ReplyController extends Controller
         $this->validate(request(), ['body' => 'required']);
 
         $reply->update(request(['body']));
+
+        return response([
+            'message' => 'Your reply has been updated!',
+        ]);
     }
 
     /**
