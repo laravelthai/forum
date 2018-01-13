@@ -1,5 +1,5 @@
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600");
 @import "node_modules/font-awesome/scss/font-awesome.scss";
 
 // Variables
@@ -8,16 +8,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.navbar-light {
+.border-none {
+  border-style: none;
+}
+.border-b {
   border-bottom: 1px solid $border-color;
 }
-.list-group-item {
-  border: none;
-  margin-bottom: 0;
-  border-bottom: 1px solid $border-color;
-}
-.list-group-item:last-child {
-  border-bottom: 0;
+.text-xs-muted {
+  font-size: .75rem;
+  color: $gray-500;
 }
 [v-cloak] { display: none; }
 // Card
@@ -28,11 +27,6 @@
 .card h3.card-title {
   font-size: 1.125rem;
   margin: 0.5rem 0;
-}
-// Forum
-.meta , .meta a, .meta .btn {
-  color: #999;
-  font-size: .9em;
 }
 // Thread
 .thread-show .card .card-header {
@@ -48,9 +42,13 @@
 .profile-card {
   background-color: #e9ecef;
 }
-.profile-card .user-info {
-  font-size: 0.75rem;
-}
 .sidebar, .main-content {
   padding-top: 1.25rem;
+}
+.sidebar {
+  .menu-list {
+    a {
+      color: #667d99;
+    }
+  }
 }
