@@ -31,6 +31,31 @@ class ReadThreadsTest extends TestCase
     }
 
     /** @test */
+    function a_user_can_filter_threads_according_to_a_channel()
+    {
+        $channel = create('App\Channel');
+        $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
+        $threadNotInChannel = create('App\Thread');
+
+        $this->get('/threads/' . $channel->id)
+            ->assertSee($threadInChannel->title)
+            ->assertDontSee($threadNotInChannel->title);
+    }
+
+    /** @test */
+    function a_user_can_filter_threads_by_any_username()
+    {
+        $this->signIn();
+
+        $threadBySignInUser = create('App\Thread', ['user_id' => auth()->id()]);
+        $threadNotBySignInUser = create('App\Thread');
+
+        $this->get('threads?by='.auth()->id())
+            ->assertSee($threadBySignInUser->title)
+            ->assertDontSee($threadNotBySignInUser->title);
+    }
+
+    /** @test */
     function a_user_can_request_all_replies_for_a_given_thread()
     {
         $thread = create('App\Thread');

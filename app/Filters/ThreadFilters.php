@@ -2,8 +2,6 @@
 
 namespace App\Filters;
 
-use App\User;
-
 class ThreadFilters extends Filters
 {
     /**
@@ -16,14 +14,12 @@ class ThreadFilters extends Filters
     /**
      * Filter the query by a given username.
      *
-     * @param  string $username
+     * @param  integer $userId
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    protected function by($username)
+    protected function by($userId)
     {
-        $user = User::where('name', $username)->firstOrFail();
-
-        return $this->builder->where('user_id', $user->id);
+        return $this->builder->where('user_id', $userId);
     }
 
     /**
