@@ -1,7 +1,9 @@
 <template>
     <li :id="'reply-'+id" class="list-group-item" @mouseover="activeMenu = true" @mouseleave="activeMenu = false">
         <div class="media">
-            <img class="avatar rounded-circle mr-3" :src="reply.owner.avatar_path" :alt="reply.owner.name" :title="reply.owner.name">
+            <a :href="'/profiles/'+reply.owner.id" :title="reply.owner.name">
+                <img class="avatar rounded-circle mr-3" :src="reply.owner.avatar_path" :alt="reply.owner.name" :title="reply.owner.name">
+            </a>
             <div class="media-body">
                 <a :href="'/profiles/'+reply.owner.id" :title="reply.owner.name" v-text="reply.owner.name">
                 </a>

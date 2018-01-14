@@ -14,8 +14,10 @@
                         @forelse ($threads as $thread)
                         <li class="list-group-item">
                             <div class="media">
-                                <img class="pull-left rounded-circle mt-1 mr-2" width="32"
-                                     src="{{ $thread->creator->avatar_path }}" alt="">
+                                <a href="{{ route('profile', $thread->creator->id) }}">
+                                    <img class="pull-left rounded-circle mt-1 mr-2" width="32"
+                                         src="{{ $thread->creator->avatar_path }}" alt="">
+                                </a>
                                 <div class="media-body">
                                     <a class="text-dark" href="{{ $thread->path() }}">
                                         {{ $thread->title }}
