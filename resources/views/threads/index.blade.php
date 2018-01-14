@@ -13,9 +13,16 @@
                     <ul class="list-group list-group-flush">
                         @forelse ($threads as $thread)
                         <li class="list-group-item">
-                            <a href="{{ $thread->path() }}">
-                                {{ $thread->title }}
-                            </a>
+                            <div class="media">
+                                <img class="pull-left rounded-circle mt-1 mr-2" width="32"
+                                     src="{{ $thread->creator->avatar_path }}" alt="">
+                                <div class="media-body">
+                                    <a class="text-dark" href="{{ $thread->path() }}">
+                                        {{ $thread->title }}
+                                    </a>
+                                    <p class="text-xs-muted mb-0">{{ $thread->creator->name }} started {{ $thread->created_at->diffForHumans() }}</p>
+                                </div>
+                            </div>
                         </li>
                         @empty
                             <li class="list-group-item text-center">

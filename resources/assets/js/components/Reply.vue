@@ -1,15 +1,15 @@
 <template>
     <li :id="'reply-'+id" class="list-group-item" @mouseover="activeMenu = true" @mouseleave="activeMenu = false">
         <div class="media">
-            <img class="avatar rounded-circle mr-3" src="https://i.imgur.com/1fgOYH3.jpg" :alt="reply.owner.name">
+            <img class="avatar rounded-circle mr-3" :src="reply.owner.avatar_path" :alt="reply.owner.name" :title="reply.owner.name">
             <div class="media-body">
                 <a :href="'/profiles/'+reply.owner.id" :title="reply.owner.name" v-text="reply.owner.name">
                 </a>
                 <span> • </span>
-                <span class="meta" :title="reply.created_at" v-text="ago"></span>
-                <span class="meta pull-right" v-show="activeMenu" v-if="authorize('owns', reply)">
-                    <button class="btn btn-link btn-sm" @click="editing = !editing">Edit</button>
-                    <button class="btn btn-link btn-sm" @click="destroy">Delete</button>
+                <span class="text-xs-muted" :title="reply.created_at" v-text="ago"></span>
+                <span class="pull-right" v-show="activeMenu" v-if="authorize('owns', reply)">
+                    <button class="btn btn-link btn-sm text-xs-muted" @click="editing = !editing">Edit</button>
+                    <button class="btn btn-link btn-sm text-xs-muted" @click="destroy">Delete</button>
                 </span>
                 <div class="reply-body mt-1">
                     <div v-if="editing">
