@@ -30,3 +30,5 @@ Route::patch('/replies/{reply}', 'ReplyController@update');
 Route::delete('/replies/{reply}', 'ReplyController@destroy');
 
 Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
+
+Route::post('api/users/{user}/avatar', 'Api\UserAvatarController@store');

@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'avatar_path',
     ];
 
     /**
@@ -26,6 +26,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'email',
     ];
+
+    /**
+     * Get the path to the user's avatar.
+     *
+     * @param  string $avatar
+     * @return string
+     */
+    public function getAvatarPathAttribute($avatar)
+    {
+        return asset($avatar ?: 'img/avatars/default.png');
+    }
 
     /**
      * Fetch all threads that were created by the user.

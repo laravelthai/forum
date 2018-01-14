@@ -41,6 +41,14 @@
 }
 .profile-card {
   background-color: #e9ecef;
+  .avatar {
+    width: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .profile-card .avatar {
+    width: 72px;
+  }
 }
 .sidebar, .main-content {
   padding-top: 1.25rem;
