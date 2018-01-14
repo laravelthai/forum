@@ -35,20 +35,18 @@
                     <div class="card-header">
                         <h3 class="card-title">Thread</h3>
                     </div>
-                    <div class="card-body p-0">
-                        <ul class="list-group">
-                            @foreach ($threads as $thread)
-                                <li class="list-group-item">
-                                    <a href="{{ url($thread->path()) }}">
-                                        {{ $thread->title }}
-                                    </a>
-                                    <span class="text-xs-muted pull-right">
-                                        {{ $thread->created_at->diffForHumans() }}
-                                    </span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($threads as $thread)
+                            <li class="list-group-item">
+                                <a href="{{ url($thread->path()) }}">
+                                    {{ $thread->title }}
+                                </a>
+                                <span class="text-xs-muted pull-right">
+                                    {{ $thread->created_at->diffForHumans() }}
+                                </span>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
