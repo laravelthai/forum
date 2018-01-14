@@ -45,6 +45,10 @@
 .sidebar, .main-content {
   padding-top: 1.25rem;
 }
+.main-content .pagination {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
 .sidebar {
   .menu-list {
     a {
