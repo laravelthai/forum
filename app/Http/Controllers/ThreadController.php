@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Channel;
-use App\Filters\ThreadFilters;
 use App\Thread;
+use App\Channel;
 use Illuminate\Http\Request;
+use App\Filters\ThreadFilters;
 
 class ThreadController extends Controller
 {

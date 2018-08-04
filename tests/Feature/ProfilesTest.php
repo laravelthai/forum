@@ -10,7 +10,7 @@ class ProfilesTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
-    function a_user_has_a_profile()
+    public function a_user_has_a_profile()
     {
         $user = create('App\User');
 
@@ -19,13 +19,13 @@ class ProfilesTest extends TestCase
     }
 
     /** @test */
-    function profiles_display_all_threads_created_by_the_associated_user()
+    public function profiles_display_all_threads_created_by_the_associated_user()
     {
         $this->signIn();
 
         $thread = create('App\Thread', ['user_id' => auth()->id()]);
 
-        $this->get("/profiles/".auth()->user()->id)
+        $this->get('/profiles/'.auth()->user()->id)
             ->assertSee($thread->title);
     }
 }

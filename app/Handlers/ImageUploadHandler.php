@@ -9,12 +9,12 @@ class ImageUploadHandler
     /**
      * @param \Illuminate\Http\UploadedFile $file
      * @param $folder
-     * @param integer|bool $max_width
+     * @param int|bool $max_width
      * @return string
      */
     public function save($file, $folder, $max_width = false)
     {
-        $folder_name = "uploads/images/$folder/".date("Y", time()).'/'.date("m", time()).'/'.date("d", time()).'/';
+        $folder_name = "uploads/images/$folder/".date('Y', time()).'/'.date('m', time()).'/'.date('d', time()).'/';
 
         $image = Image::make($file);
 
