@@ -14,7 +14,7 @@ class ThreadFilters extends Filters
     /**
      * Filter the query by a given username.
      *
-     * @param  integer $userId
+     * @param  int $userId
      * @return \Illuminate\Database\Eloquent\Builder
      */
     protected function by($userId)

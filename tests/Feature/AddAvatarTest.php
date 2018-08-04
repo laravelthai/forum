@@ -39,7 +39,7 @@ class AddAvatarTest extends TestCase
             'avatar' => $file = UploadedFile::fake()->image('avatar.jpg'),
         ]);
 
-        $folder_name = "uploads/images/avatars/".date("Y", time()).'/'.date("m", time()).'/'.date("d", time()).'/';
+        $folder_name = 'uploads/images/avatars/'.date('Y', time()).'/'.date('m', time()).'/'.date('d', time()).'/';
 
         $this->assertEquals(asset($folder_name.$file->hashName()), auth()->user()->avatar_path);
 
