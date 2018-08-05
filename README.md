@@ -6,5 +6,8 @@
 * User Profile - แก้ไขข้อมูลส่วนตัว อัพรูปโปรไฟล์ และเปลี่ยนรหัสผ่าน;
 * ฯลฯ
 
+### ตัวอย่าง
+http://laravel-thai-forum.herokuapp.com
+
 ### Credits
 * https://github.com/laracasts/Lets-Build-a-Forum-in-Laravel
