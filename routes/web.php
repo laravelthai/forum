@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'ThreadController@index');
 Route::get('threads', 'ThreadController@index');
 Route::get('threads/channels/{channel}', 'ThreadController@index');
 Route::get('threads/create', 'ThreadController@create');
