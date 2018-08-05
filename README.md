@@ -1,4 +1,4 @@
-# A Forum with Laravel
+# Building a forum with Laravel
 การสร้างเว็บบอร์ดด้วย Laravel 5.5
 
 ## แผนในการพัฒนา
@@ -9,5 +9,5 @@
 ### ตัวอย่าง
 http://laravel-thai-forum.herokuapp.com
 
-### Credits
+### เครดิต
 * https://github.com/laracasts/Lets-Build-a-Forum-in-Laravel
