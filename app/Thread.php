@@ -106,6 +106,7 @@ class Thread extends Model
     public function hasUpdatesFor($user)
     {
         $key = $user->visitedThreadCacheKey($this);
+
         return $this->updated_at > cache($key);
     }
 }

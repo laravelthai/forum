@@ -44,7 +44,7 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
-    function a_thread_can_check_if_the_authenticated_user_has_read_all_replies()
+    public function a_thread_can_check_if_the_authenticated_user_has_read_all_replies()
     {
         $this->signIn();
 
