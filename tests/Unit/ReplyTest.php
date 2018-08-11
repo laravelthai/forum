@@ -19,7 +19,7 @@ class ReplyTest extends TestCase
     }
 
     /** @test */
-    function it_knows_if_it_was_just_published()
+    public function it_knows_if_it_was_just_published()
     {
         $reply = create('App\Reply');
 
