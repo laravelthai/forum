@@ -29,42 +29,48 @@
 </template>
 
 <script>
-    import moment from "moment";
+import moment from 'moment'
 
-    export default {
-        props: ["reply"],
-        data() {
-            return {
-                editing: false,
-                activeMenu: false,
-                id: this.reply.id,
-                body: this.reply.body
-            };
-        },
-        computed: {
-            ago() {
-                return moment(this.reply.created_at).fromNow();
-            }
-        },
-        methods: {
-            update() {
-                axios.patch("/replies/" + this.id, {
-                    body: this.body
-                }).then(response => {
-                    this.editing = false;
-                    this.activeMenu = false;
-                    flash(response.data.message);
-                }).catch(error => {
-                    flash(error.response.data, "danger");
-                });
-            },
-            destroy() {
-                axios.delete("/replies/" + this.id).then(response => {
-                    this.$emit("deleted", this.id);
-                }).catch(error => {
-                    flash(error.response.data, "danger");
-                });
-            }
-        }
-    };
+export default {
+  props: ['reply'],
+  data() {
+    return {
+      editing: false,
+      activeMenu: false,
+      id: this.reply.id,
+      body: this.reply.body
+    }
+  },
+  computed: {
+    ago() {
+      return moment(this.reply.created_at).fromNow()
+    }
+  },
+  methods: {
+    update() {
+      axios
+        .patch('/replies/' + this.id, {
+          body: this.body
+        })
+        .then(response => {
+          this.editing = false
+          this.activeMenu = false
+          flash(response.data.message)
+        })
+        .catch(error => {
+          flash(error.response.data, 'danger')
+        })
+    },
+    destroy() {
+      axios
+        .delete('/replies/' + this.id)
+        .then(response => {
+          this.$emit('deleted', this.id)
+        })
+        .catch(error => {
+          flash(error.response.data, 'danger')
+        })
+    }
+  }
+}
 </script>

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Reply;
 use App\Thread;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ReplyController extends Controller
 {
@@ -45,6 +45,12 @@ class ReplyController extends Controller
      */
     public function store(Thread $thread)
     {
+        if (Gate::denies('create', new Reply)) {
+            return response(
+                'You are posting too frequently. Please take a break. :)', 429
+            );
+        }
+
         $this->validate(request(), ['body' => 'required']);
 
         $reply = $thread->addReply([
