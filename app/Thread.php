@@ -96,4 +96,16 @@ class Thread extends Model
     {
         return $this->hasMany(Reply::class)->with('owner');
     }
+
+    /**
+     * Determine if the thread has been updated since the user last read it.
+     *
+     * @param  User $user
+     * @return bool
+     */
+    public function hasUpdatesFor($user)
+    {
+        $key = $user->visitedThreadCacheKey($this);
+        return $this->updated_at > cache($key);
+    }
 }
