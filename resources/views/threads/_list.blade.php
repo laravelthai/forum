@@ -14,6 +14,9 @@
             </a>
             <p class="text-xs-muted mb-0">{{ $thread->creator->name }} started {{ $thread->created_at->diffForHumans() }}</p>
         </div>
+        <span class="text-xs-muted pull-right">
+            {{ $thread->replies_count }} {{ str_plural('reply', $thread->replies_count) }}
+        </span>
     </div>
 </li>
 @empty
