@@ -6,7 +6,7 @@
         </a>
         <div class="media-body">
             <a class="text-dark" href="{{ $thread->path() }}">
-                @if ($thread->hasUpdatesFor(auth()->user()))
+                @if (auth()->check() && $thread->hasUpdatesFor(auth()->user()))
                 <strong>{{ $thread->title }}</strong>
                 @else
                 {{ $thread->title }}
