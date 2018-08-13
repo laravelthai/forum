@@ -36,7 +36,7 @@ class User extends Authenticatable
      */
     public function getAvatarPathAttribute($avatar)
     {
-        return asset($avatar ?: 'img/avatars/default.png');
+        return asset($avatar ?: 'img/avatars/default.jpg');
     }
 
     /**
