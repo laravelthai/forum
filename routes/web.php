@@ -11,7 +11,7 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'ThreadController@index');
 Route::get('threads', 'ThreadController@index');

@@ -9,30 +9,34 @@
 
     <title>@yield('title', config('app.name', 'Laravel')) - Laravel Thailand.</title>
 
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
-     <!-- Scripts -->
-     <script>
+    <!-- Scripts -->
+    <script>
         window.App = {!! json_encode([
             'csrfToken' => csrf_token(),
             'user' => Auth::user(),
             'signedIn' => Auth::check()
         ]) !!};
     </script>
+    <script src="{{ mix('/js/manifest.js') }}" defer></script>
+    <script src="{{ mix('/js/vendor.js') }}" defer></script>
+    <script src="{{ mix('/js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="app">
+    <div id="app">
     @include ('layouts.nav')
 
-    @yield('content')
+        <main class="py-4">
+            @yield('content')
+        </main>
 
-    <flash message="{{ session('flash') }}"></flash>
-</div>
-
-<!-- Scripts -->
-<script src="/js/manifest.js"></script>
-<script src="/js/vendor.js"></script>
-<script src="/js/app.js"></script>
+        <flash message="{{ session('flash') }}"></flash>
+    </div>
 </body>
 </html>
