@@ -18,12 +18,12 @@ require('./bootstrap');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('flash', require('./components/Flash.vue'));
-Vue.component('reply', require('./components/Reply.vue'));
-Vue.component('paginator', require('./components/Paginator.vue'));
-Vue.component('avatar-form', require('./components/AvatarForm.vue'));
+Vue.component('flash', require('./components/Flash.vue').default);
+Vue.component('reply', require('./components/Reply.vue').default);
+Vue.component('paginator', require('./components/Paginator.vue').default);
+Vue.component('avatar-form', require('./components/AvatarForm.vue').default);
 
-Vue.component('thread-view', require('./pages/Thread.vue'));
+Vue.component('thread-view', require('./pages/Thread.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
