@@ -19,7 +19,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            {{ $thread->body }}
+                            {!! $thread->body !!}
                         </div>
                         @can ('delete', $thread)
                             <div class="card-footer py-0">

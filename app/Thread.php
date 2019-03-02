@@ -109,4 +109,15 @@ class Thread extends Model
 
         return $this->updated_at > cache($key);
     }
+
+     /**
+     * Access the body attribute.
+     *
+     * @param  string $body
+     * @return string
+     */
+    public function getBodyAttribute($body)
+    {
+        return \Purify::clean($body);
+    }
 }

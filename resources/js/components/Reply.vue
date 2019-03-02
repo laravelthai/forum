@@ -9,19 +9,21 @@
                 </a>
                 <span> • </span>
                 <span class="text-xs-muted" :title="reply.created_at" v-text="ago"></span>
-                <span class="pull-right" v-show="activeMenu" v-if="authorize('owns', reply)">
+                <span class="pull-right" v-show="activeMenu && !editing" v-if="authorize('owns', reply)">
                     <button class="btn btn-link btn-sm text-xs-muted" @click="editing = !editing">Edit</button>
                     <button class="btn btn-link btn-sm text-xs-muted" @click="destroy">Delete</button>
                 </span>
                 <div class="reply-body mt-1">
                     <div v-if="editing">
-                        <div class="form-group">
-                            <textarea class="form-control" v-model="body"></textarea>
-                        </div>
-                        <button class="btn btn-sm btn-primary" @click="update">Update</button>
-                        <button class="btn btn-sm btn-link" @click="editing = false">Cancel</button>
+                        <form @submit.prevent="update">
+                            <div class="form-group">
+                                <wysiwyg v-model="body"></wysiwyg>
+                            </div>
+                            <button class="btn btn-sm btn-primary" type="submit">Update</button>
+                            <button class="btn btn-sm btn-link" @click="editing = false" type="button">Cancel</button>
+                        </form>
                     </div>
-                    <div v-else v-text="body"></div>
+                    <div v-else v-html="body"></div>
                 </div>
             </div>
         </div>

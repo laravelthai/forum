@@ -16,6 +16,8 @@ try {
 
 window.Vue = require('vue')
 
+Vue.config.ignoredElements = ['trix-editor']
+
 let authorizations = require('./authorizations')
 
 Vue.prototype.authorize = function(...params) {

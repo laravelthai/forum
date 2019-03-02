@@ -11,9 +11,10 @@ class ThreadTest extends TestCase
 
     protected $thread;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
+
         $this->thread = create('App\Thread');
     }
 
@@ -38,6 +39,17 @@ class ThreadTest extends TestCase
     }
 
     /** @test */
+    public function a_thread_can_add_a_reply()
+    {
+        $this->thread->addReply([
+            'body' => 'Foobar',
+            'user_id' => 1
+        ]);
+
+        $this->assertCount(1, $this->thread->replies);
+    }
+
+    /** @test */
     public function a_thread_belongs_to_a_channel()
     {
         $this->assertInstanceOf('App\Channel', $this->thread->channel);
@@ -57,5 +69,13 @@ class ThreadTest extends TestCase
 
             $this->assertFalse($thread->hasUpdatesFor($user));
         });
+    }
+
+    /** @test */
+    function a_threads_body_is_sanitized_automatically()
+    {
+        $thread = make('App\Thread', ['body' => '<script>alert("bad")</script><p>This is okay.</p>']);
+
+        $this->assertEquals("<p>This is okay.</p>", $thread->body);
     }
 }
