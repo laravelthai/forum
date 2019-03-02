@@ -1,4 +1,5 @@
 <template>
+<div>
     <div v-if="signedIn" class="reply-box">
         <div class="form-group">
             <textarea name="body" id="body" class="form-control" placeholder="Have something to say?" rows="3" required v-model="body">
@@ -6,6 +7,10 @@
         </div>
         <button class="btn btn-sm btn-primary" @click="addReply">Post</button>
     </div>
+    <p class="text-center" v-else>
+        Please <a href="/login">sign in</a> to participate in this discussion.
+    </p>
+</div>
 </template>
 
 <script>
