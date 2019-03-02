@@ -46,21 +46,17 @@ class ReplyController extends Controller
     public function store(Thread $thread)
     {
         if (Gate::denies('create', new Reply)) {
-            return response(
-                'You are posting too frequently. Please take a break. :)', 429
-            );
+            return response()->json([
+                'message' => 'You are posting too frequently. Please take a break. :)'
+            ], 429);
         }
 
         $this->validate(request(), ['body' => 'required']);
 
-        $reply = $thread->addReply([
+        return $thread->addReply([
             'body' => request('body'),
-            'user_id' => auth()->id(),
-        ]);
-
-        if (request()->expectsJson()) {
-            return $reply->load('owner');
-        }
+            'user_id' => auth()->id()
+        ])->load('owner');
     }
 
     /**
